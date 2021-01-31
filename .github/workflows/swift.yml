@@ -25,6 +25,11 @@ jobs:
           platform: ${{matrix.os}}
     - uses: actions/checkout@v2
     - uses: actions/cache@v2
+      with:
+          path: .build
+          key: ${{runner.os}}-${{github.repository}}-spm-${{hashFiles('**/Package.resolved')}}
+          restore-keys: |
+            ${{runner.os}}-${{github.repository}}-spm-
     - name: Build
       run: swift build -v
     - name: Run tests
