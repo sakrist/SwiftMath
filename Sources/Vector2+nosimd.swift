@@ -13,6 +13,9 @@ import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
 #endif
+#if EMSDK
+import emsdk
+#endif
 
     @frozen
     public struct Vector2f {
@@ -62,7 +65,7 @@ import Glibc
         }
         
         public var length: Float {
-            return sqrt(self.lengthSquared)
+            return sqrtf(self.lengthSquared)
         }
         
         public func dot(_ v: Vector2f) -> Float {
@@ -78,7 +81,7 @@ import Glibc
             if lengthSquared ~= 0 || lengthSquared ~= 1 {
                 return self
             }
-            return self / sqrt(lengthSquared)
+            return self / sqrtf(lengthSquared)
         }
         
         public func interpolated(to v: Vector2f, factor t: Float) -> Vector2f {

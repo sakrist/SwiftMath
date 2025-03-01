@@ -33,6 +33,9 @@ internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
 }
 #endif
 
+#if !EMSDK
+
+
 // each type has its own random
 public extension Bool {
     /// SwiftRandom extension
@@ -105,3 +108,5 @@ public extension Vector2f {
         }
     }
 }
+
+#endif

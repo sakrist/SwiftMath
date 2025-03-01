@@ -13,7 +13,10 @@ import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
 #endif
-    
+#if EMSDK
+import emsdk
+#endif
+
 @frozen
 public struct Vector3f {
     public var x: Float = 0.0
@@ -68,7 +71,7 @@ extension Vector3f {
     }
     
     public var length: Float {
-        return sqrt(self.lengthSquared)
+        return sqrtf(self.lengthSquared)
     }
     
     public func dot(_ v: Vector3f) -> Float {
@@ -84,7 +87,7 @@ extension Vector3f {
         if lengthSquared ~= 0 || lengthSquared ~= 1 {
             return self
         }
-        return self / sqrt(lengthSquared)
+        return self / sqrtf(lengthSquared)
     }
     
     public func interpolated(with v: Vector3f, by t: Float) -> Vector3f {

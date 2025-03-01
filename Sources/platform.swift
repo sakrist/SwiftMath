@@ -61,28 +61,28 @@ internal func powf(_ a: Float, _ b: Float) -> Float {
 #endif
     
 
-#if (os(Linux) || os(Android) || os(Windows))
+#if (os(Linux) || os(Android) || os(Windows) || EMSDK)
 
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
-    sina = sin(a * Float.pi)
-    cosa = cos(a * Float.pi)
+    sina = sin(a * .pi)
+    cosa = cos(a * .pi)
 }
 	
 @inline(__always)
 internal func __sinpif(_ a: Float) -> Float {
-	return sin(a * Float.pi)
+	return sin(a * .pi)
 }
 
 
 @inline(__always)
 internal func __cospif(_ a: Float) -> Float {
-	return cos(a * Float.pi)
+	return cos(a * .pi)
 }
 
 @inline(__always)
 internal func __tanpif(_ a: Float) -> Float {
-    return tan(a * Float.pi)
+    return tan(a * .pi)
 }
 
 #elseif (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
