@@ -21,6 +21,9 @@ let cSettings: [CSetting] = shouldBuildForEmbedded ? [
 let dependencies: [Package.Dependency] = shouldBuildForEmbedded ? [
     .package(path: "../emswiften")] : []
 
+let targetDependencies: [Target.Dependency] = shouldBuildForEmbedded ? [
+    "emswiften"] : []
+
 let package = Package(
     name: "SwiftMath",
     products: [
@@ -32,7 +35,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftMath",
-            dependencies: ["emswiften"],
+            dependencies: targetDependencies,
             path: ".",
             exclude: ["SwiftMath.podspec", "README.md", "Tests", "LICENSE"],
             sources: ["Sources"],
