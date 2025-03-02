@@ -8,7 +8,7 @@ let shouldBuildForEmbedded =
 let swiftSettings: [SwiftSetting] = shouldBuildForEmbedded ? [
                 .enableExperimentalFeature("Embedded"),
                 .enableExperimentalFeature("Extern"),
-                .define("EMSDK"),
+                .define("NOSIMD"),
                 .unsafeFlags([
                     "-Xfrontend", "-emit-empty-object-file",
                 ]),
@@ -40,7 +40,7 @@ let package = Package(
             exclude: ["SwiftMath.podspec", "README.md", "Tests", "LICENSE"],
             sources: ["Sources"],
             cSettings: cSettings,
-            swiftSettings: [ .define("NOSIMD")] 
+            swiftSettings: [ .define("NOSIMD", .when(platforms: [.linux, .android, .windows, .wasi, ]))] 
                             + swiftSettings),
         
         .testTarget(

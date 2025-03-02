@@ -61,7 +61,7 @@ internal func powf(_ a: Float, _ b: Float) -> Float {
 #endif
     
 
-#if (os(Linux) || os(Android) || os(Windows) || EMSDK)
+#if (os(Linux) || os(Android) || os(Windows) || canImport(emsdk) || canImport(WASILibc))
 
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {

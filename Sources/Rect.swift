@@ -82,7 +82,7 @@ public struct Rect {
     }
 
 #if !hasFeature(Embedded)
-    public static let zero = Rect(origin: .zero, size: .zero)
+    nonisolated(unsafe) public static let zero = Rect(origin: .zero, size: .zero)
 #endif
 }
 

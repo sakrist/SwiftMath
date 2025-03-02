@@ -12,8 +12,9 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
-#endif
-#if EMSDK
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(emsdk)
 import emsdk
 #endif
 

@@ -33,7 +33,7 @@ internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
 }
 #endif
 
-#if !EMSDK
+#if !(canImport(emsdk) || canImport(WASILibc))
 
 
 // each type has its own random
