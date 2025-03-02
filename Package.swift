@@ -19,7 +19,7 @@ let cSettings: [CSetting] = shouldBuildForEmbedded ? [
                 ] : []
 
 let dependencies: [Package.Dependency] = shouldBuildForEmbedded ? [
-    .package(path: "../emswiften")] : []
+    .package(url: "https://github.com/sakrist/emswiften", branch: "main"), ] : []
 
 let targetDependencies: [Target.Dependency] = shouldBuildForEmbedded ? [
     "emswiften"] : []
