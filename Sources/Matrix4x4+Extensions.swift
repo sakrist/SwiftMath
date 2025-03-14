@@ -6,6 +6,8 @@
 //
 //
 
+public typealias mat4 = Matrix4x4f
+
 public extension Matrix4x4f {
     func translated(by v: Vector3f) -> Matrix4x4f {
         let col3 = self * vec4(v)
