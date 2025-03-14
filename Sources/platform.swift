@@ -63,26 +63,30 @@ internal func powf(_ a: Float, _ b: Float) -> Float {
 
 #if (os(Linux) || os(Android) || os(Windows) || canImport(emsdk) || canImport(WASILibc))
 
+#if canImport(emsdk)
+import emsdk
+#endif
+
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
-    sina = sin(a * .pi)
-    cosa = cos(a * .pi)
+    sina = sinf(a * .pi)
+    cosa = cosf(a * .pi)
 }
 	
 @inline(__always)
 internal func __sinpif(_ a: Float) -> Float {
-	return sin(a * .pi)
+	return sinf(a * .pi)
 }
 
 
 @inline(__always)
 internal func __cospif(_ a: Float) -> Float {
-	return cos(a * .pi)
+	return cosf(a * .pi)
 }
 
 @inline(__always)
 internal func __tanpif(_ a: Float) -> Float {
-    return tan(a * .pi)
+    return tanf(a * .pi)
 }
 
 #elseif (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
