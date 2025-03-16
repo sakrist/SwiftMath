@@ -2,6 +2,8 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
+public typealias mat3 = Matrix3x3f
+
 public extension Matrix3x3f {
     /// Returns the identity matrix
     static let identity = Matrix3x3f(diagonal: vec3(1.0))

@@ -50,11 +50,13 @@ extension Angle: CustomStringConvertible, CustomDebugStringConvertible {
     }
 }
 
+#if !hasFeature(Embedded)
 extension Angle: CustomPlaygroundDisplayConvertible {
     public var playgroundDescription: Any {
         return degrees
     }
 }
+#endif
 
 extension Int {
     /// Returns the integer value as an angle in degrees

@@ -80,8 +80,10 @@ public struct Rect {
         self.origin = origin
         self.size   = size
     }
-    
-    public static let zero = Rect(origin: Point.zero, size: Vector2f.zero)
+
+#if !hasFeature(Embedded)
+    nonisolated(unsafe) public static let zero = Rect(origin: .zero, size: .zero)
+#endif
 }
 
 extension Rect: CustomStringConvertible {

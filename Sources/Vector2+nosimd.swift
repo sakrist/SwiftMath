@@ -12,6 +12,10 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(emsdk)
+import emsdk
 #endif
 
     @frozen
@@ -62,7 +66,7 @@ import Glibc
         }
         
         public var length: Float {
-            return sqrt(self.lengthSquared)
+            return sqrtf(self.lengthSquared)
         }
         
         public func dot(_ v: Vector2f) -> Float {
@@ -78,7 +82,7 @@ import Glibc
             if lengthSquared ~= 0 || lengthSquared ~= 1 {
                 return self
             }
-            return self / sqrt(lengthSquared)
+            return self / sqrtf(lengthSquared)
         }
         
         public func interpolated(to v: Vector2f, factor t: Float) -> Vector2f {

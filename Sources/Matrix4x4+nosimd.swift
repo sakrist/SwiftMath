@@ -9,25 +9,27 @@
 #if NOSIMD
 @frozen
 public struct Matrix4x4f {
-    internal var m11: Float = 0.0
-    internal var m12: Float = 0.0
-    internal var m13: Float = 0.0
-    internal var m14: Float = 0.0
-    internal var m21: Float = 0.0
-    internal var m22: Float = 0.0
-    internal var m23: Float = 0.0
-    internal var m24: Float = 0.0
-    internal var m31: Float = 0.0
-    internal var m32: Float = 0.0
-    internal var m33: Float = 0.0
-    internal var m34: Float = 0.0
-    internal var m41: Float = 0.0
-    internal var m42: Float = 0.0
-    internal var m43: Float = 0.0
-    internal var m44: Float = 0.0
+    private var m: [Float] = Array(repeating: 0, count: 16)
+    
+    internal var m11: Float { get { m[0] } set { m[0] = newValue } }
+    internal var m12: Float { get { m[1] } set { m[1] = newValue } }
+    internal var m13: Float { get { m[2] } set { m[2] = newValue } }
+    internal var m14: Float { get { m[3] } set { m[3] = newValue } }
+    internal var m21: Float { get { m[4] } set { m[4] = newValue } }
+    internal var m22: Float { get { m[5] } set { m[5] = newValue } }
+    internal var m23: Float { get { m[6] } set { m[6] = newValue } }
+    internal var m24: Float { get { m[7] } set { m[7] = newValue } }
+    internal var m31: Float { get { m[8] } set { m[8] = newValue } }
+    internal var m32: Float { get { m[9] } set { m[9] = newValue } }
+    internal var m33: Float { get { m[10] } set { m[10] = newValue } }
+    internal var m34: Float { get { m[11] } set { m[11] = newValue } }
+    internal var m41: Float { get { m[12] } set { m[12] = newValue } }
+    internal var m42: Float { get { m[13] } set { m[13] = newValue } }
+    internal var m43: Float { get { m[14] } set { m[14] = newValue } }
+    internal var m44: Float { get { m[15] } set { m[15] = newValue } }
     
     public func toArray() -> [Float] {
-        return [m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44]
+        return m
     }
     
     public init() {}

@@ -9,18 +9,47 @@
 #if NOSIMD
 @frozen
 public struct Matrix3x3f {
-    public var m11: Float = 0.0
-    public var m12: Float = 0.0
-    public var m13: Float = 0.0
-    public var m21: Float = 0.0
-    public var m22: Float = 0.0
-    public var m23: Float = 0.0
-    public var m31: Float = 0.0
-    public var m32: Float = 0.0
-    public var m33: Float = 0.0
+    private var elements: [Float] = Array(repeating: 0.0, count: 9)
+    
+    public var m11: Float {
+        get { elements[0] }
+        set { elements[0] = newValue }
+    }
+    public var m12: Float {
+        get { elements[1] }
+        set { elements[1] = newValue }
+    }
+    public var m13: Float {
+        get { elements[2] }
+        set { elements[2] = newValue }
+    }
+    public var m21: Float {
+        get { elements[3] }
+        set { elements[3] = newValue }
+    }
+    public var m22: Float {
+        get { elements[4] }
+        set { elements[4] = newValue }
+    }
+    public var m23: Float {
+        get { elements[5] }
+        set { elements[5] = newValue }
+    }
+    public var m31: Float {
+        get { elements[6] }
+        set { elements[6] = newValue }
+    }
+    public var m32: Float {
+        get { elements[7] }
+        set { elements[7] = newValue }
+    }
+    public var m33: Float {
+        get { elements[8] }
+        set { elements[8] = newValue }
+    }
     
     public func toArray() -> [Float] {
-        return [m11, m12, m13, m21, m22, m23, m31, m32, m33]
+        return elements
     }
   
     public init() {}

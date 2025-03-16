@@ -10,6 +10,10 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(emsdk)
+import emsdk
 #endif
 
 // MARK: Linear
@@ -132,23 +136,23 @@ public func expoEaseInOut(_ time: Float) -> Float {
 
 // MARK: Circ Ease
 public func circEaseIn(_ time: Float) -> Float {
-    return -(sqrt(1 - time * time) - 1)
+    return -(sqrtf(1 - time * time) - 1)
 }
 
 public func circEaseOut(_ time: Float) -> Float {
     var time = time
     time = time - 1
-    return sqrt(1 - time * time)
+    return sqrtf(1 - time * time)
 }
 
 public func circEaseInOut(_ time: Float) -> Float {
     var time = time
     time = time * 2
     if time < 1 {
-        return -0.5 * (sqrt(1 - time * time) - 1)
+        return -0.5 * (sqrtf(1 - time * time) - 1)
     }
     time -= 2
-    return 0.5 * (sqrt(1 - time * time) + 1)
+    return 0.5 * (sqrtf(1 - time * time) + 1)
 }
 
 // MARK: Elastic Ease

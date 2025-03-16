@@ -6,6 +6,7 @@
 //
 //
 
+#if !hasFeature(Embedded)
 import Foundation
 internal extension String {
     var floatArray: [Float] {
@@ -42,3 +43,4 @@ public extension Rect {
         }
     }
 }
+#endif

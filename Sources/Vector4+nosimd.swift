@@ -11,7 +11,12 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(emsdk)
+import emsdk
 #endif
+
 
 @frozen
 public struct Vector4f {
@@ -78,7 +83,7 @@ extension Vector4f: Equatable {
     }
     
     public var length: Float {
-        return sqrt(self.lengthSquared)
+        return sqrtf(self.lengthSquared)
     }
     
     public func dot(_ v: Vector4f) -> Float {
@@ -90,7 +95,7 @@ extension Vector4f: Equatable {
         if lengthSquared ~= 0 || lengthSquared ~= 1 {
             return self
         }
-        return self / sqrt(lengthSquared)
+        return self / sqrtf(lengthSquared)
     }
     
     public func interpolated(with v: Vector4f, by t: Float) -> Vector4f {
