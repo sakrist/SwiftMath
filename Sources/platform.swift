@@ -67,6 +67,10 @@ internal func powf(_ a: Float, _ b: Float) -> Float {
 import emsdk
 #endif
 
+#if canImport(WASILibc)
+import WASILibc
+#endif
+
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
     sina = sinf(a * .pi)
